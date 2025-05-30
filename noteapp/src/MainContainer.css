@@ -1,0 +1,163 @@
+:root {
+  --primary: #4A90E2;
+  --secondary: #FFFFFF;
+  --accent: #F5A623;
+  --glass-bg-light: rgba(255, 255, 255, 0.65);
+  --glass-bg-dark: rgba(25, 34, 44, 0.45);
+  --glass-border: 1.5px solid rgba(255, 255, 255, 0.25);
+  --text-light: #23252a;
+  --text-dark: #FFFFFF;
+}
+
+body[data-theme="light"] {
+  background: linear-gradient(120deg, #f5f7fa 0%, #b8c6db 100%);
+}
+
+body[data-theme="dark"] {
+  background: linear-gradient(120deg, #23242a 0%, #111c27 100%);
+}
+
+.noteease-main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.glassy {
+  background: var(--glass-bg-light);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  backdrop-filter: blur(24px) saturate(1.5);
+  border: var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(60,60,70, 0.17);
+  transition: background 0.25s, color 0.25s;
+}
+body[data-theme="dark"] .glassy {
+  background: var(--glass-bg-dark);
+  color: var(--text-dark);
+}
+body[data-theme="light"] .glassy {
+  background: var(--glass-bg-light);
+  color: var(--text-light);
+}
+
+.noteease-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 700;
+  font-size: 1.2rem;
+}
+
+.noteease-logo {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-btn {
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  color: var(--primary);
+  transition: filter 0.2s, color 0.2s;
+  padding: 3px 0;
+}
+.theme-toggle-btn:focus {
+  filter: blur(0.1px) brightness(1.18);
+}
+.theme-toggle-btn:hover {
+  color: var(--accent);
+}
+
+.noteease-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+  max-width: 720px;
+  margin: 108px auto 0 auto;
+  border-radius: 18px;
+  padding: 2.2rem 1.5rem 3rem 1.5rem;
+  box-shadow: 0 4px 20px 0 rgba(80, 125, 201, 0.04);
+  transition: box-shadow 0.25s, background 0.25s;
+}
+
+.noteease-hero {
+  text-align: center;
+  margin-bottom: 2.3rem;
+}
+
+.noteease-hero h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.noteease-desc {
+  color: var(--primary);
+  font-size: 1.1rem;
+  text-shadow: 0 1px 4px rgba(74, 144, 226, 0.07);
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Floating Action Button */
+.add-note-fab {
+  position: fixed;
+  bottom: 34px;
+  right: 36px;
+  z-index: 800;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  font-size: 2.6rem;
+  box-shadow: 0 6px 25px -2px rgba(74, 144, 226, 0.23);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.15s, box-shadow 0.15s, scale 0.12s;
+}
+.add-note-fab:focus {
+  outline: 3px solid var(--accent);
+}
+.add-note-fab:hover {
+  filter: brightness(1.12);
+  scale: 1.05;
+  background: linear-gradient(135deg, #1D6FA2 30%, #F5A623 100%);
+}
+
+@media (max-width: 600px) {
+  .noteease-main {
+    max-width: 98vw;
+    border-radius: 10px;
+    margin: 85px 3px 0 3px;
+    padding: 1.0rem 3vw 2rem 3vw;
+  }
+  .noteease-navbar {
+    padding: 0 0.8rem;
+    height: 56px;
+    font-size: 1rem;
+  }
+  .add-note-fab {
+    width: 54px;
+    height: 54px;
+    font-size: 2.0rem;
+    bottom: 16px;
+    right: 16px;
+  }
+}
